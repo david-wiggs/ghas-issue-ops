@@ -63,6 +63,7 @@ jobs:
           echo "Enterprise name: $ENTERPRISE_NAME"
           
           # Get total and used GHAS licenses
+          # make update to check GHEC endpoint
           GHAS_DATA=$(gh api -H "Accept: application/vnd.github+json" "/enterprises/$ENTERPRISE_NAME/settings/billing/advanced-security" --hostname $ENTERPRISE_URL)
           
           TOTAL_LICENSES=$(echo $GHAS_DATA | jq '.total_seats')
